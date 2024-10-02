@@ -1,3 +1,5 @@
+//ESTO ESTA EN PROCESO NO E ACABADO
+
 function guardar() {
   let nota = 0.0;
   let apellidos = "";
@@ -42,6 +44,8 @@ function guardarP() {
     nombre: document.getElementById("nombre").value,
     apellidos: document.getElementById("apellidos").value,
     email: document.getElementById("correo").value,
+    profesor: document.getElementById("profesor").value,
+    telefono: document.getElementById("telefono").value,
   });
 
   let requestOptions = {
@@ -127,6 +131,8 @@ function actualizarP() {
     nombre: document.getElementById("nombreA").value,
     apellidos: document.getElementById("apellidosA").value,
     email: document.getElementById("correoA").value,
+    profesor: document.getElementById("profesorA").value,
+    email: document.getElementById("telfonoA").value,
   });
 
   let requestOptions = {
@@ -158,27 +164,7 @@ function cargarLE(resultado) {
   document.getElementById("rtaLE").innerHTML = salida;
 }
 
-function listar_estudiante() {
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  event.preventDefault();
-
-  const requestOptions = {
-    method: "GET",
-    headers: myHeaders,
-    redirect: "follow",
-  };
-  let elid = document.getElementById("idLE").value;
-  fetch(
-    "http://localhost:8888/.netlify/functions/estudiantes/" + elid,
-    requestOptions
-  )
-    .then((response) => response.text())
-    .then((result) => cargarLE(result))
-    .catch((error) => console.error(error));
-}
-
-function listar_profesores() {
+function listar_curso() {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   event.preventDefault();
@@ -203,7 +189,7 @@ function cargarEE(resultado) {
   document.getElementById("rtaEE").innerHTML = transformado.respuesta;
 }
 
-function eliminar_estudiante() {
+function eliminar_curso() {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   event.preventDefault();
