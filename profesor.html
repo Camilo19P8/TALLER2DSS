@@ -2,12 +2,17 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <script type="text/javascript" src="./frontend/scripstP.js"></script>
+    <script type="text/javascript" src="./frontend/scripstProfesor.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <h1>Adicionar profesor</h1>
     <div>
-      <form id="adicionarProfesor">
+      <a href="index.html">estudiantes</a>
+      <a href="cursos.html">cursos</a>
+    </div>
+    <h1>Adicionar Profesor</h1>
+    <div>
+      <form id="adicionarProfesores">
         <div>
           <label for="dni">Documento de identidad:</label>
           <input type="text" id="dni" placeholder="" />
@@ -21,15 +26,15 @@
           <input type="text" id="apellidos" placeholder="" />
           <br />
 
-          <label for="correo">Email:</label>
-          <input type="text" id="correo" placeholder="" value="" />
+          <label for="email">Email:</label>
+          <input type="text" id="email" placeholder="" />
           <br />
 
-          <label for="correo">Profesor:</label>
-          <input type="text" id="profesor" placeholder="" value="" />
+          <label for="profesor">Profesor:</label>
+          <input type="text" id="profesor" placeholder="" />
           <br />
 
-          <label for="correo">Telefono:</label>
+          <label for="telefono">Telefono:</label>
           <input type="text" id="telefono" placeholder="" value="" />
           <br />
           <br />
@@ -46,9 +51,9 @@
       </form>
     </div>
 
-    <h1>Modificar Profesores</h1>
+    <h1>Modificar Profesor</h1>
     <div>
-      <form id="actualizarProfesores">
+      <form id="actualizarProfesor">
         <label for="idA">Identificador:</label>
         <input type="text" id="idA" placeholder="" />
         <br />
@@ -85,7 +90,7 @@
 
     <h1>Listar Profesores</h1>
     <div>
-      <form id="listarunProfesor">
+      <form id="listarunProfesores">
         <label for="idLE">Identificador del profesor a buscar:</label>
         <input type="text" id="idLE" placeholder="" />
         <br />
@@ -94,7 +99,7 @@
       </form>
     </div>
 
-    <h1>Eliminar profesor</h1>
+    <h1>Eliminar Profesor</h1>
     <div>
       <form id="eliminarProfesor">
         <label for="idEE">Identificador del profesor a borrar:</label>
@@ -103,10 +108,6 @@
         <p id="rtaEE">Resultado:</p>
         <input type="submit" onclick="eliminar_profesores()" value="Aceptar" />
       </form>
-    </div>
-    <div>
-      <a href="index.html">estudiante</a>
-      <a href="cursos.html">cursos</a>
     </div>
   </body>
 </html>

@@ -27,35 +27,6 @@ function guardar() {
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
 }
-function guardarP() {
-  let nota = 0.0;
-  let apellidos = "";
-
-  let datoingresado = document.getElementById("correo").value;
-
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  event.preventDefault();
-
-  let raw = JSON.stringify({
-    dni: document.getElementById("dni").value,
-    nombre: document.getElementById("nombre").value,
-    apellidos: document.getElementById("apellidos").value,
-    email: document.getElementById("correo").value,
-  });
-
-  let requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: raw,
-    redirect: "follow",
-  };
-
-  fetch("http://localhost:8888/.netlify/functions/profesores", requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.error(error));
-}
 //eje
 function cargar(resultado) {
   let transformado = JSON.parse(resultado);
@@ -117,34 +88,6 @@ function actualizar() {
     .catch((error) => console.error(error));
 }
 
-function actualizarP() {
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  event.preventDefault();
-
-  let raw = JSON.stringify({
-    dni: document.getElementById("dniA").value,
-    nombre: document.getElementById("nombreA").value,
-    apellidos: document.getElementById("apellidosA").value,
-    email: document.getElementById("correoA").value,
-  });
-
-  let requestOptions = {
-    method: "PUT",
-    headers: myHeaders,
-    body: raw,
-    redirect: "follow",
-  };
-  let elid = document.getElementById("idA").value;
-  fetch(
-    "http://localhost:8888/.netlify/functions/profesores/" + elid,
-    requestOptions
-  )
-    .then((response) => response.text())
-    .then((result) => respuesta_actualizar(result))
-    .catch((error) => console.error(error));
-}
-
 function cargarLE(resultado) {
   let transformado = JSON.parse(resultado);
   var salida = "";
@@ -171,26 +114,6 @@ function listar_estudiante() {
   let elid = document.getElementById("idLE").value;
   fetch(
     "http://localhost:8888/.netlify/functions/estudiantes/" + elid,
-    requestOptions
-  )
-    .then((response) => response.text())
-    .then((result) => cargarLE(result))
-    .catch((error) => console.error(error));
-}
-
-function listar_profesores() {
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  event.preventDefault();
-
-  const requestOptions = {
-    method: "GET",
-    headers: myHeaders,
-    redirect: "follow",
-  };
-  let elid = document.getElementById("idLE").value;
-  fetch(
-    "http://localhost:8888/.netlify/functions/profesores/" + elid,
     requestOptions
   )
     .then((response) => response.text())
