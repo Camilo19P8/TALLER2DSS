@@ -2,17 +2,22 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <title>Gestión de Estudiantes</title>
     <script type="text/javascript" src="./frontend/script.js"></script>
+    <script type="text/javascript" src="./frontend/permissions.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
     <div>
-      <a href="profesor.html">profesor</a>
-      <a href="cursos.html">cursos</a>
+      <a href="profesor.html">Profesor</a>
+      <a href="cursos.html">Cursos</a>
     </div>
-    <h1>Adicionar estudiante</h1>
-    <div>
-      <form id="adicionarEstudiante">
+
+    <!-- Adicionar Estudiante -->
+
+    <div id="adicionarEstudiante" style="display: none">
+      <form>
+        <h1>Adicionar estudiante</h1>
         <div>
           <label for="dni">Documento de identidad:</label>
           <input type="text" id="dni" placeholder="" />
@@ -30,51 +35,55 @@
           <input type="text" id="correo" placeholder="" value="" />
           <br />
           <br />
-          <br />
           <input type="submit" onclick="guardar()" value="Aceptar" />
         </div>
       </form>
     </div>
-    <h1>Listar estudiantes</h1>
-    <div>
-      <form id="listarEstudiantes">
+
+    <!-- Listar Estudiantes -->
+
+    <div id="listarEstudiantes" style="display: none">
+      <form>
+        <h1>Listar estudiantes</h1>
         <p id="rta">Resultado:</p>
         <input type="submit" onclick="listar()" value="Aceptar" />
       </form>
     </div>
 
-    <h1>Modificar estudiante</h1>
-    <div>
-      <form id="actualizarEstudiante">
+    <!-- Modificar Estudiante -->
+
+    <div id="actualizarEstudiante" style="display: none">
+      <form>
+        <h1>Modificar estudiante</h1>
         <label for="idA">Identificador:</label>
         <input type="text" id="idA" placeholder="" />
         <br />
 
-        <label for="dni">Documento de identidad:</label>
+        <label for="dniA">Documento de identidad:</label>
         <input type="text" id="dniA" placeholder="" />
         <br />
 
-        <label for="nombre">Nombres:</label>
+        <label for="nombreA">Nombres:</label>
         <input type="text" id="nombreA" placeholder="" />
         <br />
 
-        <label for="apellidos">Apellidos:</label>
+        <label for="apellidosA">Apellidos:</label>
         <input type="text" id="apellidosA" placeholder="" />
         <br />
 
         <label for="correoA">Email:</label>
         <input type="text" id="correoA" placeholder="" />
         <br />
-        <br />
-        <br />
         <p id="rtaA">Resultado:</p>
         <input type="submit" onclick="actualizar()" value="Aceptar" />
       </form>
     </div>
 
-    <h1>Listar estudiante</h1>
-    <div>
-      <form id="listarunEstudiante">
+    <!-- Listar un Estudiante -->
+
+    <div id="listarunEstudiante" style="display: none">
+      <form>
+        <h1>Listar estudiante</h1>
         <label for="idLE">Identificador del estudiante a buscar:</label>
         <input type="text" id="idLE" placeholder="" />
         <br />
@@ -83,9 +92,11 @@
       </form>
     </div>
 
-    <h1>Eliminar estudiante</h1>
-    <div>
-      <form id="eliminarEstudiante">
+    <!-- Eliminar Estudiante -->
+
+    <div id="eliminarEstudiante" style="display: none">
+      <form>
+        <h1>Eliminar estudiante</h1>
         <label for="idEE">Identificador del estudiante a borrar:</label>
         <input type="text" id="idEE" placeholder="" />
         <br />

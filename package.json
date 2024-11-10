@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "netlify": "netlify dev",
+    "python": "python3 sms/main.py", 
+    "dev": "concurrently \"npm run python\" \"npm run netlify\""
   },
   "keywords": [],
   "author": "",
@@ -15,5 +18,9 @@
     "nodemon": "^3.1.4",
     "serverless-http": "^3.2.0"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+  
 }

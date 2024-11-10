@@ -2,18 +2,23 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <title>Gestión de Profesor</title>
+
     <script type="text/javascript" src="./frontend/scripstProfesor.js"></script>
+    <script type="text/javascript" src="./frontend/permissionsP.js"></script>
+
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
     <div>
-      <a href="index.html">estudiantes</a>
-      <a href="cursos.html">cursos</a>
+      <a href="index.html">Estudiantes</a>
+      <a href="cursos.html">Cursos</a>
     </div>
-    <h1>Adicionar Profesor</h1>
-    <div>
-      <form id="adicionarProfesores">
+
+    <div id="adicionarProfesores" style="display: none">
+      <form>
         <div>
+          <h1>Adicionar Profesor</h1>
           <label for="dni">Documento de identidad:</label>
           <input type="text" id="dni" placeholder="" />
           <br />
@@ -34,7 +39,7 @@
           <input type="text" id="profesor" placeholder="" />
           <br />
 
-          <label for="telefono">Telefono:</label>
+          <label for="telefono">Teléfono:</label>
           <input type="text" id="telefono" placeholder="" value="" />
           <br />
           <br />
@@ -43,17 +48,18 @@
         </div>
       </form>
     </div>
-    <h1>Listar Profesores</h1>
-    <div>
-      <form id="listarProfesores">
+
+    <div id="listarProfesores" style="display: none">
+      <form>
+        <h1>Listar Profesores</h1>
         <p id="rta">Resultado:</p>
         <input type="submit" onclick="listar()" value="Aceptar" />
       </form>
     </div>
 
-    <h1>Modificar Profesor</h1>
-    <div>
-      <form id="actualizarProfesor">
+    <div id="actualizarProfesor" style="display: none">
+      <form>
+        <h1>Modificar Profesor</h1>
         <label for="idA">Identificador:</label>
         <input type="text" id="idA" placeholder="" />
         <br />
@@ -78,7 +84,7 @@
         <input type="text" id="profesorA" placeholder="" />
         <br />
 
-        <label for="telefonoA">Telefono:</label>
+        <label for="telefonoA">Teléfono:</label>
         <input type="text" id="telefonoA" placeholder="" />
         <br />
         <br />
@@ -88,9 +94,9 @@
       </form>
     </div>
 
-    <h1>Listar Profesores</h1>
-    <div>
-      <form id="listarunProfesores">
+    <div id="listarunProfesores" style="display: none">
+      <form>
+        <h1>Listar Profesor</h1>
         <label for="idLE">Identificador del profesor a buscar:</label>
         <input type="text" id="idLE" placeholder="" />
         <br />
@@ -99,9 +105,9 @@
       </form>
     </div>
 
-    <h1>Eliminar Profesor</h1>
-    <div>
-      <form id="eliminarProfesor">
+    <div id="eliminarProfesor" style="display: none">
+      <form>
+        <h1>Eliminar Profesor</h1>
         <label for="idEE">Identificador del profesor a borrar:</label>
         <input type="text" id="idEE" placeholder="" />
         <br />

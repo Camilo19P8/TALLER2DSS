@@ -2,23 +2,26 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <title>Gestión de Curso</title>
     <script type="text/javascript" src="./frontend/scriptCursos.js"></script>
+    <script type="text/javascript" src="./frontend/permissionsC.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
     <div>
-      <a href="index.html">estudiantes</a>
-      <a href="profesor.html">profesor</a>
+      <a href="index.html">Estudiantes</a>
+      <a href="profesor.html">Profesor</a>
     </div>
-    <h1>Adicionar Cursos</h1>
-    <div>
-      <form id="adicionarProfesores">
+
+    <div id="adicionarCursos" style="display: none">
+      <form>
+        <h1>Adicionar Cursos</h1>
         <div>
           <label for="nombre">Nombres:</label>
           <input type="text" id="nombre" placeholder="" />
           <br />
 
-          <label for="descripcion">Descripcion:</label>
+          <label for="descripcion">Descripción:</label>
           <input type="text" id="descripcion" placeholder="" />
           <br />
 
@@ -31,17 +34,18 @@
         </div>
       </form>
     </div>
-    <h1>Listar Cursos</h1>
-    <div>
-      <form id="listarCursos">
+
+    <div id="listarCursos" style="display: none">
+      <form>
+        <h1>Listar Cursos</h1>
         <p id="rta">Resultado:</p>
         <input type="submit" onclick="listar()" value="Aceptar" />
       </form>
     </div>
 
-    <h1>Modificar Cursos</h1>
-    <div>
-      <form id="actualizarCurso">
+    <div id="actualizarCurso" style="display: none">
+      <form>
+        <h1>Modificar Cursos</h1>
         <label for="idA">Identificador:</label>
         <input type="text" id="idA" placeholder="" />
         <br />
@@ -50,7 +54,7 @@
         <input type="text" id="nombreA" placeholder="" />
         <br />
 
-        <label for="descripcionA">Descripcion:</label>
+        <label for="descripcionA">Descripción:</label>
         <input type="text" id="descripcionA" placeholder="" />
         <br />
 
@@ -64,9 +68,9 @@
       </form>
     </div>
 
-    <h1>Listar Cursos</h1>
-    <div>
-      <form id="listarunCursos">
+    <div id="listarunCursos" style="display: none">
+      <form>
+        <h1>Listar Curso</h1>
         <label for="idLE">Identificador del curso a buscar:</label>
         <input type="text" id="idLE" placeholder="" />
         <br />
@@ -75,9 +79,9 @@
       </form>
     </div>
 
-    <h1>Eliminar Cursos</h1>
-    <div>
-      <form id="eliminarCrusos">
+    <div id="eliminarCursos" style="display: none">
+      <form>
+        <h1>Eliminar Curso</h1>
         <label for="idEE">Identificador del curso a borrar:</label>
         <input type="text" id="idEE" placeholder="" />
         <br />
