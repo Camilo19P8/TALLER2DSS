@@ -4,90 +4,91 @@
     <meta charset="UTF-8" />
     <title>Gestión de Curso</title>
     <script type="text/javascript" src="./frontend/scriptCursos.js"></script>
-    <script type="text/javascript" src="./frontend/permissionsC.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script
+      type="text/javascript"
+      src="/backend/permisos/permissionsC.js"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <script></script>
   </head>
   <body>
-    <div>
-      <a href="index.html">Estudiantes</a>
-      <a href="profesor.html">Profesor</a>
-    </div>
+    <nav>
+      <div class="nav-links">
+        <a href="profesor.html">Profesor</a>
+        <a href="estudiantes.html">estudiantes</a>
+        <button class="logout-button" onclick="logout()">Cerrar Sesión</button>
+      </div>
+    </nav>
 
-    <div id="adicionarCursos" style="display: none">
-      <form>
-        <h1>Adicionar Cursos</h1>
-        <div>
+    <div class="container">
+      <!-- Adicionar Cursos -->
+      <div id="adicionarCursos" class="tab-content">
+        <form>
+          <h1>Adicionar Cursos</h1>
           <label for="nombre">Nombres:</label>
           <input type="text" id="nombre" placeholder="" />
-          <br />
-
           <label for="descripcion">Descripción:</label>
           <input type="text" id="descripcion" placeholder="" />
-          <br />
-
           <label for="profesor_id">Profesor ID:</label>
           <input type="text" id="profesor_id" placeholder="" />
-          <br />
-          <br />
-          <br />
           <input type="submit" onclick="guardar()" value="Aceptar" />
-        </div>
-      </form>
+        </form>
+      </div>
+
+      <!-- Listar Cursos -->
+      <div id="listarCursos" class="tab-content">
+        <form>
+          <h1>Listar Cursos</h1>
+          <p id="rta">Resultado:</p>
+          <input type="submit" onclick="listar()" value="Aceptar" />
+        </form>
+      </div>
+
+      <!-- Modificar Cursos -->
+      <div id="actualizarCurso" class="tab-content">
+        <form>
+          <h1>Modificar Cursos</h1>
+          <label for="idA">Identificador:</label>
+          <input type="text" id="idA" placeholder="" />
+          <label for="nombreA">Nombres:</label>
+          <input type="text" id="nombreA" placeholder="" />
+          <label for="descripcionA">Descripción:</label>
+          <input type="text" id="descripcionA" placeholder="" />
+          <label for="profesor_idA">Profesor ID:</label>
+          <input type="text" id="profesor_idA" placeholder="" />
+          <p id="rtaA">Resultado:</p>
+          <input type="submit" onclick="actualizar()" value="Aceptar" />
+        </form>
+      </div>
+
+      <!-- Listar un Curso -->
+      <div id="listarunCursos" class="tab-content">
+        <form>
+          <h1>Listar Curso</h1>
+          <label for="idLE">Identificador del curso a buscar:</label>
+          <input type="text" id="idLE" placeholder="" />
+          <p id="rtaLE">Resultado:</p>
+          <input type="submit" onclick="listar_cursos()" value="Aceptar" />
+        </form>
+      </div>
+
+      <!-- Eliminar Curso -->
+      <div id="eliminarCursos" class="tab-content">
+        <form>
+          <h1>Eliminar Curso</h1>
+          <label for="idEE">Identificador del curso a borrar:</label>
+          <input type="text" id="idEE" placeholder="" />
+          <p id="rtaEE">Resultado:</p>
+          <input type="submit" onclick="eliminar_cursos()" value="Aceptar" />
+        </form>
+      </div>
     </div>
 
-    <div id="listarCursos" style="display: none">
-      <form>
-        <h1>Listar Cursos</h1>
-        <p id="rta">Resultado:</p>
-        <input type="submit" onclick="listar()" value="Aceptar" />
-      </form>
-    </div>
-
-    <div id="actualizarCurso" style="display: none">
-      <form>
-        <h1>Modificar Cursos</h1>
-        <label for="idA">Identificador:</label>
-        <input type="text" id="idA" placeholder="" />
-        <br />
-
-        <label for="nombreA">Nombres:</label>
-        <input type="text" id="nombreA" placeholder="" />
-        <br />
-
-        <label for="descripcionA">Descripción:</label>
-        <input type="text" id="descripcionA" placeholder="" />
-        <br />
-
-        <label for="profesor_idA">Profesor ID:</label>
-        <input type="text" id="profesor_idA" placeholder="" />
-        <br />
-        <br />
-        <br />
-        <p id="rtaA">Resultado:</p>
-        <input type="submit" onclick="actualizar()" value="Aceptar" />
-      </form>
-    </div>
-
-    <div id="listarunCursos" style="display: none">
-      <form>
-        <h1>Listar Curso</h1>
-        <label for="idLE">Identificador del curso a buscar:</label>
-        <input type="text" id="idLE" placeholder="" />
-        <br />
-        <p id="rtaLE">Resultado:</p>
-        <input type="submit" onclick="listar_cursos()" value="Aceptar" />
-      </form>
-    </div>
-
-    <div id="eliminarCursos" style="display: none">
-      <form>
-        <h1>Eliminar Curso</h1>
-        <label for="idEE">Identificador del curso a borrar:</label>
-        <input type="text" id="idEE" placeholder="" />
-        <br />
-        <p id="rtaEE">Resultado:</p>
-        <input type="submit" onclick="eliminar_cursos()" value="Aceptar" />
-      </form>
-    </div>
+    <script>
+      function logout() {
+        localStorage.removeItem("isLoggedIn");
+        window.location.href = "index.html";
+      }
+    </script>
   </body>
 </html>

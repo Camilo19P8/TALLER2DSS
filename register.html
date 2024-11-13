@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div>
+      <h1>Registro de Usuario</h1>
+      <form id="registerForm">
+        <label for="username">Nombre de Usuario:</label>
+        <input type="text" id="username" required />
+
+        <label for="numero">Número de Teléfono:</label>
+        <input type="text" id="numero" required />
+
+        <label for="role">Rol:</label>
+        <select id="role" required class="styled-select">
+          <option value="ADMIN">Administrador</option>
+          <option value="ESTUDIANTE">Estudiante</option>
+          <option value="PROFESOR">Profesor</option>
+        </select>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" required />
+
+        <input type="submit" value="Registrar" />
+        <button
+          onclick="window.location.href='index.html';"
+          class="styled-button"
+        >
+          Volver al inicio
+        </button>
+      </form>
+      <p id="statusMessage"></p>
+      <!-- Aquí se mostrará el mensaje de error o éxito -->
+    </div>
+
+    <script>
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const numero = document.getElementById("numero").value;
+          const password = document.getElementById("password").value;
+          const role = document.getElementById("role").value;
+
+          // Enviar los datos al backend
+          const response = await fetch("/.netlify/functions/register", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, numero, password, role }),
+          });
+
+          const data = await response.json();
+          const statusMessage = document.getElementById("statusMessage");
+
+          if (data.success) {
+            statusMessage.textContent = "Usuario registrado correctamente.";
+            // Redirigir a la página de login o página principal
+            window.location.href = "index.html";
+          } else {
+            statusMessage.textContent = "Error: " + data.error;
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verificar Código</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <h1>Verificar Código</h1>
+    <form id="verify-form">
+      <label for="code">Ingresa el código recibido:</label>
+      <input type="text" id="code" name="code" required />
+      <input type="submit" value="Verificar" />
+    </form>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const verifyForm = document.getElementById("verify-form");
+
+        // Manejo de la verificación del código
+        verifyForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const code = document.getElementById("code").value;
+
+          const response = await fetch("/.netlify/functions/verify-code", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ code }),
+          });
+
+          const data = await response.json();
+          console.log("Respuesta del servidor:", data);
+
+          if (response.ok) {
+            // Si la verificación fue exitosa, almacenamos la bandera en localStorage
+            localStorage.setItem("isLoggedIn", data.localStorage.isLoggedIn);
+            console.log(
+              "LocalStorage actualizado:",
+              localStorage.getItem("isLoggedIn")
+            );
+
+            // Redirigimos a la página correspondiente
+            window.location.href = data.redirect;
+          } else {
+            alert(data.message || "Error al verificar el código.");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
